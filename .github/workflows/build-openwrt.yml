@@ -61,14 +61,7 @@ jobs:
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        ./scripts/feeds install -a
-    - name: Import external feeds
-      working-directory: ./openwrt
-      run: |
-        git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
-        git clone https://github.com/vernesong/OpenClash.git package/OpenClash
-        git clone https://github.com/LuttyYang/luci-theme-material.git package/luci-theme-material
-    #    git clone "your_github_link" package/"your_folder_name"      
+        ./scripts/feeds install -a      
 
     - name: Configuration Customization - Build_x86_64
       env:
@@ -78,19 +71,28 @@ jobs:
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
         
-    - name: Download package
-      working-directory: ./openwrt
+
+    - name: Make download
       run: |
-        make download -j$(nproc)
-        find dl -size -1024c -exec ls -l {} \;
-        find dl -size -1024c -exec rm -f {} \;
-    - name: Build firmware
-      working-directory: ./openwrt
+        make download -j8
+        find ./dl/ -size -1024c -exec rm -f {} \;
+
+    - name: Compile firmware
       run: |
-        echo -e "$(nproc) thread build."
-        make -j$(nproc) V=s
-    - name : Upload artifact
+        make -j$(nproc) || make -j1 V=s
+        echo "======================="
+        echo "Space usage:"
+        echo "======================="
+        df -h
+        echo "======================="
+        du -h ./ --max-depth=1
+        du -h /mnt/openwrt/ --max-depth=1
+          
+    - name: Prepare artifact
+      run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
+
+    - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt
-        path: openwrt/bin
+        name: OpenWrt firmware
+        path: ./bin/targets/
