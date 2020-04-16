@@ -47,9 +47,9 @@ jobs:
 
     - name: Update feeds
       run: |
-        sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
+        cd openwrt && sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
+        cd openwrt && ./scripts/feeds update -a
+        cd openwrt && ./scripts/feeds install -a
 
     - name: Load custom configuration
       run: |
