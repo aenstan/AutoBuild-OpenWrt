@@ -73,9 +73,8 @@ jobs:
       id: compile
       run: |
         cd openwrt
-        echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 V=s
-        echo "::set-output name=status::success"
+        echo -e "$(nproc) thread build."
+        make -j$(nproc) V=s
 
     - name: Prepare artifact
       run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
