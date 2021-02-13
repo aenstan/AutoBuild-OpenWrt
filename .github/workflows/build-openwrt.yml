@@ -3,14 +3,14 @@ name: Build OpenWrt
 on:
   repository_dispatch:
   release:
-    types: [published]
+    types: published
 #  push:
 #    branches:
 #      - master
 #    paths:
 #      - '.config'
   schedule:
-    - cron: 00 15 * * *
+    - cron: 0 15 * * *
   watch:
     types: started
 
