@@ -87,7 +87,7 @@ config config_subscribe
 	option type 'clash'
 	option name 'Maying'
 	option enabled '1'
-	option address 'https://mysub.cf/FJXrERA'
+	option address '0'
 
 config dns_servers
 	option enabled '1'
