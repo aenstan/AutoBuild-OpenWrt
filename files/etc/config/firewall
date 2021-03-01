@@ -3,10 +3,10 @@ config defaults
 	option syn_flood '1'
 	option input 'ACCEPT'
 	option output 'ACCEPT'
-	option forward 'REJECT'
 	option fullcone '1'
 	option flow_offloading '1'
 	option flow_offloading_hw '1'
+	option forward 'ACCEPT'
 
 config zone
 	option name 'lan'
@@ -145,13 +145,73 @@ config rule 'adblock'
 	option proto 'tcp'
 	option dest_port '8118'
 
+config include 'openclash'
+	option type 'script'
+	option path '/var/etc/openclash.include'
+	option reload '1'
+
 config include 'unblockmusic'
 	option type 'script'
 	option path '/var/etc/unblockmusic.include'
 	option reload '1'
 
-config include 'openclash'
-	option type 'script'
-	option path '/var/etc/openclash.include'
-	option reload '1'
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '8000'
+	option dest_ip '192.168.0.1'
+	option dest_port '8000'
+	option name 'elecv2p'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '9999'
+	option dest_ip '192.168.0.1'
+	option dest_port '9999'
+	option name 'docker'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '5678'
+	option dest_ip '192.168.0.1'
+	option dest_port '5678'
+	option name 'jd'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option src_dport '22'
+	option dest_ip '192.168.0.1'
+	option dest_port '22'
+	option name 'router'
+	option proto 'tcp udp'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '8001'
+	option dest_ip '192.168.0.1'
+	option dest_port '8001'
+	option name 'boxjs'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '9090'
+	option dest_ip '192.168.0.1'
+	option dest_port '9090'
+	option name 'openclash'
 
