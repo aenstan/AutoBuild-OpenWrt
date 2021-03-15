@@ -133,28 +133,6 @@ config include 'miniupnpd'
 	option family 'any'
 	option reload '1'
 
-config include 'adbyby'
-	option type 'script'
-	option path '/var/etc/adbyby.include'
-	option reload '1'
-
-config rule 'adblock'
-	option name 'adblock'
-	option target 'DROP'
-	option src 'wan'
-	option proto 'tcp'
-	option dest_port '8118'
-
-config include 'openclash'
-	option type 'script'
-	option path '/var/etc/openclash.include'
-	option reload '1'
-
-config include 'unblockmusic'
-	option type 'script'
-	option path '/var/etc/unblockmusic.include'
-	option reload '1'
-
 config redirect
 	option target 'DNAT'
 	option src 'wan'
@@ -192,8 +170,8 @@ config redirect
 	option src_dport '22'
 	option dest_ip '192.168.0.1'
 	option dest_port '22'
-	option name 'router'
 	option proto 'tcp udp'
+	option name 'router-scp'
 
 config redirect
 	option target 'DNAT'
@@ -214,4 +192,36 @@ config redirect
 	option dest_ip '192.168.0.1'
 	option dest_port '9090'
 	option name 'openclash'
+
+config include 'adbyby'
+	option type 'script'
+	option path '/var/etc/adbyby.include'
+	option reload '1'
+
+config rule 'adblock'
+	option name 'adblock'
+	option target 'DROP'
+	option src 'wan'
+	option proto 'tcp'
+	option dest_port '8118'
+
+config include 'openclash'
+	option type 'script'
+	option path '/var/etc/openclash.include'
+	option reload '1'
+
+config include 'unblockmusic'
+	option type 'script'
+	option path '/var/etc/unblockmusic.include'
+	option reload '1'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '2222'
+	option dest_ip '192.168.0.1'
+	option dest_port '2222'
+	option name 'router-web'
 
