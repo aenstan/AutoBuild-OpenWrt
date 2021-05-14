@@ -138,30 +138,30 @@ config redirect
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option src_dport '8000'
 	option dest_ip '192.168.0.1'
-	option dest_port '8000'
 	option name 'elecv2p'
+	option src_dport '8100'
+	option dest_port '8100'
 
 config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option src_dport '9999'
 	option dest_ip '192.168.0.1'
-	option dest_port '9999'
 	option name 'docker'
+	option src_dport '9000'
+	option dest_port '9000'
 
 config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option src_dport '5678'
 	option dest_ip '192.168.0.1'
 	option dest_port '5678'
 	option name 'jd'
+	option src_dport '3333'
 
 config redirect
 	option target 'DNAT'
@@ -178,10 +178,10 @@ config redirect
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option src_dport '8001'
 	option dest_ip '192.168.0.1'
-	option dest_port '8001'
 	option name 'boxjs'
+	option src_dport '8101'
+	option dest_port '8101'
 
 config redirect
 	option target 'DNAT'
@@ -192,6 +192,16 @@ config redirect
 	option dest_ip '192.168.0.1'
 	option dest_port '9090'
 	option name 'openclash'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '2222'
+	option dest_ip '192.168.0.1'
+	option dest_port '2222'
+	option name 'router-web'
 
 config include 'adbyby'
 	option type 'script'
@@ -205,23 +215,13 @@ config rule 'adblock'
 	option proto 'tcp'
 	option dest_port '8118'
 
-config include 'openclash'
-	option type 'script'
-	option path '/var/etc/openclash.include'
-	option reload '1'
-
 config include 'unblockmusic'
 	option type 'script'
 	option path '/var/etc/unblockmusic.include'
 	option reload '1'
 
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '2222'
-	option dest_ip '192.168.0.1'
-	option dest_port '2222'
-	option name 'router-web'
+config include 'openclash'
+	option type 'script'
+	option path '/var/etc/openclash.include'
+	option reload '1'
 
