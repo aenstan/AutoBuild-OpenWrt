@@ -36,8 +36,7 @@ jobs:
         echo "Deleting files, please wait ..."
         sudo rm -rf \
           /usr/share/dotnet \
-          /etc/mysql \
-          /etc/php
+          /etc/mysql 
         sudo -E apt-get -y purge \
           azure-cli \
           ghc* \
