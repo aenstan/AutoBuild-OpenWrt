@@ -1,6 +1,0 @@
-  
-config flow
-	option flow_offloading '1'
-	option bbr '1'
-	option dns '0'
-	option flow_offloading_hw '1'
