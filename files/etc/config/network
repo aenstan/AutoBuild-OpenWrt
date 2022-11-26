@@ -21,21 +21,6 @@ config interface 'wan'
 	option metric '64'
 	option delegate '0'
 
-config interface 'VPN'
-	option ifname 'ipsec0'
-	option proto 'static'
-	option ipaddr '10.10.10.1'
-	option netmask '255.255.255.0'
-
-config interface 'vpn0'
-	option ifname 'tun0'
-	option proto 'none'
-
-config interface 'docker'
-	option ifname 'docker0'
-	option proto 'none'
-	option auto '0'
-
 config device
 	option type 'bridge'
 	option name 'docker0'

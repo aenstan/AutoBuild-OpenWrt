@@ -50,7 +50,6 @@ config openclash 'config'
 	option auto_update_time '2'
 	option config_path '/etc/openclash/config/maying.yaml'
 	option restricted_mode '0'
-	option redirect_dns '1'
 	option china_ip_route '0'
 	option other_rule_update_week_time '1'
 	option other_rule_update_day_time '0'
@@ -66,12 +65,13 @@ config openclash 'config'
 	option dler_email 'root'
 	option dler_passwd 'wangxinNo1'
 	option chnr_auto_update '1'
-	option enable '1'
-	option config_reload '1'
 	option dnsmasq_noresolv '0'
 	option dnsmasq_resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
 	option cachesize_dns '0'
 	option filter_aaaa_dns '0'
+	option enable '1'
+	option config_reload '1'
+	option redirect_dns '1'
 
 config dns_servers
 	option group 'nameserver'
@@ -196,8 +196,8 @@ config dns_servers
 config config_subscribe
 	option enabled '1'
 	option name 'maying'
-	option address ''
 	option sub_convert '0'
+	option address ''
 
 config authentication
 	option enabled '1'
