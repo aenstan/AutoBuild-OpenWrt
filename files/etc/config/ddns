@@ -1,0 +1,17 @@
+
+config ddns 'global'
+	option ddns_dateformat '%F %R'
+	option ddns_loglines '250'
+	option upd_privateip '0'
+
+config service 'j4125'
+	option service_name 'dnspod.cn'
+	option enabled '1'
+	option lookup_host ''
+	option domain ''
+	option username '313336'
+	option password ''
+	option ip_source 'interface'
+	option interface 'wan'
+	option ip_interface 'eth3'
+
