@@ -158,30 +158,30 @@ config redirect
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option src_dport '8057'
 	option dest_port '5700'
+	option src_dport '8101'
+	option dest_ip '10.0.0.101'
 	option name 'qlspy'
-	option dest_ip '10.0.0.77'
 
 config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option src_dport '8058'
-	option dest_port '5800'
 	option name 'qldaily'
-	option dest_ip '10.0.0.77'
+	option src_dport '8099'
+	option dest_ip '10.0.0.99'
+	option dest_port '5700'
 
 config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option src_dport '8010'
 	option dest_port '3389'
 	option name 'win10'
 	option dest_ip '10.0.0.100'
+	option src_dport '8100'
 
 config redirect
 	option target 'DNAT'
@@ -222,4 +222,64 @@ config redirect
 	option dest_ip '10.0.0.1'
 	option dest_port '22'
 	option name 'openwrtscp'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option name 'qlspy2'
+	option src_dport '8102'
+	option dest_ip '10.0.0.102'
+	option dest_port '5700'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option name 'qlspy3'
+	option src_dport '8103'
+	option dest_ip '10.0.0.103'
+	option dest_port '5700'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option name 'qlspy4'
+	option src_dport '8104'
+	option dest_ip '10.0.0.104'
+	option dest_port '5700'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option name 'qlspy5'
+	option src_dport '8105'
+	option dest_ip '10.0.0.105'
+	option dest_port '5700'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option name 'qlspy6'
+	option src_dport '8106'
+	option dest_ip '10.0.0.106'
+	option dest_port '5700'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '9090'
+	option dest_ip '10.0.0.1'
+	option dest_port '9090'
+	option name 'luci'
 
