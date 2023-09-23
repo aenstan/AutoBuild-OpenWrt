@@ -7,8 +7,8 @@ on:
 #      - master
 #    paths:
 #      - '.config'
-  schedule:
-    - cron: 0 13 */3 * *
+#  schedule:
+#    - cron: 0 13 */3 * *
   watch:
     types: started
 
