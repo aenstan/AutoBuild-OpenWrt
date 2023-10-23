@@ -6,7 +6,7 @@ config defaults
 	option forward 'REJECT'
 	option flow_offloading '0'
 	option flow_offloading_hw '0'
-	option fullcone '1'
+	option fullcone '2'
 
 config zone
 	option name 'lan'
@@ -136,150 +136,8 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
-config include 'adbyby'
-	option type 'script'
-	option path '/var/etc/adbyby.include'
-	option reload '1'
-
-config rule 'adblock'
-	option name 'adblock'
-	option target 'DROP'
-	option src 'wan'
-	option proto 'tcp'
-	option dest_port '8118'
-
 config include 'openclash'
 	option type 'script'
 	option path '/var/etc/openclash.include'
 	option reload '1'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option dest_port '5700'
-	option src_dport '8101'
-	option dest_ip '10.0.0.101'
-	option name 'ql1'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option name 'ql'
-	option src_dport '8099'
-	option dest_ip '10.0.0.99'
-	option dest_port '5700'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option dest_port '3389'
-	option name 'win10'
-	option dest_ip '10.0.0.100'
-	option src_dport '8100'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '8002'
-	option dest_port '8006'
-	option name 'pve'
-	option dest_ip '10.0.0.2'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '8001'
-	option dest_ip '10.0.0.1'
-	option dest_port '80'
-	option name 'openwrt'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '8022'
-	option dest_ip '10.0.0.77'
-	option dest_port '22'
-	option name 'debian'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '8033'
-	option dest_ip '10.0.0.1'
-	option dest_port '22'
-	option name 'openwrtscp'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option name 'ql2'
-	option src_dport '8102'
-	option dest_ip '10.0.0.102'
-	option dest_port '5700'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option name 'ql3'
-	option src_dport '8103'
-	option dest_ip '10.0.0.103'
-	option dest_port '5700'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option name 'ql4'
-	option src_dport '8104'
-	option dest_ip '10.0.0.104'
-	option dest_port '5700'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option name 'ql5'
-	option src_dport '8105'
-	option dest_ip '10.0.0.105'
-	option dest_port '5700'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option name 'ql6'
-	option src_dport '8106'
-	option dest_ip '10.0.0.106'
-	option dest_port '5700'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '9090'
-	option dest_ip '10.0.0.1'
-	option dest_port '9090'
-	option name 'luci'
 
